@@ -8,9 +8,9 @@ else
     NODE_IPS='10.11.0.2','10.11.0.3','10.11.0.4','10.11.0.5'
 fi
 
-BENCH_ROOT=cnns
-DATA_ROOT=/datasets/ImageNet/ofrecord
-DATA_PART_NUM=256
+BENCH_ROOT=../../../../../../OneFlow-Benchmark/Classification/cnns
+DATA_ROOT=/dataset/ImageNet/ofrecord
+DATA_PART_NUM=32
 
 rm -rf ./log
 mkdir ./log
