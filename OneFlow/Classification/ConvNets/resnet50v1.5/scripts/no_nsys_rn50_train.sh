@@ -23,13 +23,7 @@ echo PYTHONUNBUFFERED=$PYTHONUNBUFFERED
 export NCCL_LAUNCH_MODE=PARALLEL
 echo NCCL_LAUNCH_MODE=$NCCL_LAUNCH_MODE
 
-if [ $ONEFLOW_ENABLE_OFCCL == "1" ]; then
-    NSYS_FILE="ofccl_resnet"
-else
-    NSYS_FILE="nccl_resnet"
-fi
-
-nsys profile -f true --trace=cuda,cudnn,cublas,osrt,nvtx -o nsys/$NSYS_FILE python3 ./$BENCH_ROOT/of_cnn_train_val.py \
+python3 ./$BENCH_ROOT/of_cnn_train_val.py \
     --num_examples=$NUM_EXAMPLES \
     --train_data_dir=$DATA_ROOT/train \
     --train_data_part_num=$DATA_PART_NUM \
